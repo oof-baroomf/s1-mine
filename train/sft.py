@@ -76,6 +76,8 @@ def train():
 
     trainer.train()
     trainer.save_model(output_dir=args.output_dir)
+    trainer.push_to_hub("s1-cloned")
+
     tokenizer.save_pretrained(args.output_dir)
     trainer.accelerator.wait_for_everyone()
 
