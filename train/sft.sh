@@ -6,11 +6,11 @@ lr=1e-5
 min_lr=0
 epochs=5
 weight_decay=1e-4 # -> the same training pipe as slurm_training
-micro_batch_size=1 # -> batch_size will be 16 if 16 gpus
+micro_batch_size=2 # -> batch_size will be 16 if 16 gpus
 gradient_accumulation_steps=1 # requires more GPU memory
 max_steps=-1
 gpu_count=$(nvidia-smi -L | wc -l)
-push_to_hub=false
+push_to_hub=true
 
 torchrun --nproc-per-node ${gpu_count} --master_port 12345 \
     train/sft.py \
