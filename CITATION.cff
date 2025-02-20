@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 abstract: "Minimal recipe for test-time scaling and strong reasoning performance matching o1-preview with just 1,000 examples & budget forcing"
-repository-code: "https://github.com/simplescaling/s1"
+repository-code: "https://github.com/oof-baroomf/s1"
 authors:
   - family-names: "Muennighoff"
     given-names: "Niklas"
@@ -33,19 +33,19 @@ keywords:
 references:
   - type: software
     title: "s1-32B"
-    url: "https://hf.co/simplescaling/s1-32B"
+    url: "https://hf.co/oof-baroomf/s1-32B"
   - type: dataset
     title: "s1K"
-    url: "https://hf.co/datasets/simplescaling/s1K"
+    url: "https://hf.co/datasets/oof-baroomf/s1K"
   - type: dataset
     title: "s1-prob"
-    url: "https://hf.co/datasets/simplescaling/s1-prob"
+    url: "https://hf.co/datasets/oof-baroomf/s1-prob"
   - type: dataset
     title: "s1-teasers"
-    url: "https://hf.co/datasets/simplescaling/s1-teasers"
+    url: "https://hf.co/datasets/oof-baroomf/s1-teasers"
   - type: dataset
     title: "data_ablation_full59K"
-    url: "https://hf.co/datasets/simplescaling/data_ablation_full59K"
+    url: "https://hf.co/datasets/oof-baroomf/data_ablation_full59K"
 date-released: "2025"
 url: "https://arxiv.org/abs/2501.19393"
 identifiers:

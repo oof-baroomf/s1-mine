@@ -49,6 +49,6 @@ def mathcot_sft(upload_data_path: str, num_proc: int,
     dataset.push_to_hub(upload_data_path)
 
 if __name__ == "__main__":
-    mathcot_sft(download_data_path="simplescaling/s1K",
-                upload_data_path="simplescaling/s1K_tokenized", 
+    mathcot_sft(download_data_path="oof-baroomf/s1K",
+                upload_data_path="oof-baroomf/s1K_tokenized", 
                 num_proc=20)

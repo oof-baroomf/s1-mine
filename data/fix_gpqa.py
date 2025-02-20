@@ -51,9 +51,9 @@ def parse():
 
 if __name__ == "__main__":
     args = parse()
-    dataset = load_dataset("simplescaling/s1K")['train']
+    dataset = load_dataset("oof-baroomf/s1K")['train']
     new_dataset = dataset.map(process_example)
     if args.local_dir:
         new_dataset.save_to_disk(args.local_dir)
     else:
-        new_dataset.push_to_hub("simplescaling/s1K")
+        new_dataset.push_to_hub("oof-baroomf/s1K")

@@ -2,11 +2,11 @@ from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
 
 model = LLM(
-    "simplescaling/s1",
+    "oof-baroomf/s1",
     tensor_parallel_size=2,
 )
 tok = AutoTokenizer.from_pretrained(
-    "simplescaling/s1"
+    "oof-baroomf/s1"
 )
 
 stop_token_ids = tok("<|im_end|>")["input_ids"]

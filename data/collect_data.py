@@ -116,8 +116,8 @@ def load_generic(name, split, question_field="question", solution_field="solutio
     return ds
 
 def load_math():
-    ds = datasets.load_dataset("simplescaling/openaimath", trust_remote_code=True)["train"]
-    ds = ds.map(lambda x: {"question": x.pop("problem"), "solution": x.pop("solution"), "cot_type": "math", "source_type": "simplescaling/openaimath/" + x['subject'], "metadata": str(x)},
+    ds = datasets.load_dataset("oof-baroomf/openaimath", trust_remote_code=True)["train"]
+    ds = ds.map(lambda x: {"question": x.pop("problem"), "solution": x.pop("solution"), "cot_type": "math", "source_type": "oof-baroomf/openaimath/" + x['subject'], "metadata": str(x)},
                 writer_batch_size=LARGE_DATASET_WRITER_BATCH_SIZE)
     ds = ds.remove_columns([c for c in ds.column_names if c not in DS_COLUMNS])
     return ds
@@ -135,7 +135,7 @@ def load_numinamath():
     ds = ds.filter(lambda x: x["source"] != "aops_forum")
     
     ### TMP ###
-    questions = datasets.load_dataset("simplescaling/numinamath_500", trust_remote_code=True)["train"]['problem']
+    questions = datasets.load_dataset("oof-baroomf/numinamath_500", trust_remote_code=True)["train"]['problem']
     ds = ds.filter(lambda x: (x["problem"] in questions) or (x["problem"] in TMP_QUESTIONS_TO_KEEP))
     ds = datasets.concatenate_datasets([ds, ds_aops])
     
@@ -236,8 +236,8 @@ def load_agieval():
     return ds
 
 def load_statsqual():
-    ds = datasets.load_dataset("simplescaling/s1-prob", trust_remote_code=True)['train']
-    ds = ds.map(lambda x: {"question": x.pop("question"), "solution": x.pop("solution"), "cot_type": "math", "source_type": "simplescaling/s1-prob", "metadata": str(x)})
+    ds = datasets.load_dataset("oof-baroomf/s1-prob", trust_remote_code=True)['train']
+    ds = ds.map(lambda x: {"question": x.pop("question"), "solution": x.pop("solution"), "cot_type": "math", "source_type": "oof-baroomf/s1-prob", "metadata": str(x)})
     ds = ds.remove_columns([c for c in ds.column_names if c not in DS_COLUMNS])
     return ds
 
@@ -273,8 +273,8 @@ def load_usaco():
     return ds
 
 def load_quant():
-    ds = datasets.load_dataset("simplescaling/s1-teasers")['train']
-    ds = ds.map(lambda x: {"question": x.pop("Question").strip(), "solution": x.pop("Answer"), "cot_type": "math", "source_type": "simplescaling/s1-teasers", "metadata": str(x)})
+    ds = datasets.load_dataset("oof-baroomf/s1-teasers")['train']
+    ds = ds.map(lambda x: {"question": x.pop("Question").strip(), "solution": x.pop("Answer"), "cot_type": "math", "source_type": "oof-baroomf/s1-teasers", "metadata": str(x)})
     ds = ds.remove_columns([c for c in ds.column_names if c not in DS_COLUMNS])
     return ds
 
@@ -445,7 +445,7 @@ if __name__ == "__main__":
     test_datasets = {
         "AI-MO/aimo-validation-aime": {"split": "train", "question_field": "problem"},
         "Idavidrein/gpqa": {"split": "train", "question_field": "Question"},
-        "simplescaling/openaimath": {"split": "test", "question_field": "problem"},
+        "oof-baroomf/openaimath": {"split": "test", "question_field": "problem"},
         "livecodebench/code_generation_lite": {"split": "test", "question_field": "question_content", "version_tag": "release_v4"},
     }
     test_questions = []
@@ -486,4 +486,4 @@ if __name__ == "__main__":
     # Drop duplicates in `ds` on "col1"
     # import pdb; pdb.set_trace()
     ds = ds.filter(partial(is_unique, column="question", memory=memory))
-    ds.push_to_hub("simplescaling/s50K")
+    ds.push_to_hub("oof-baroomf/s50K")

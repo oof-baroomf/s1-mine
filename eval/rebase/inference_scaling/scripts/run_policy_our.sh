@@ -4,7 +4,7 @@ set -x
 
 
 # qwen
-MODEL_REPO="simplescaling/s1K-step-conditional-control-old"
+MODEL_REPO="oof-baroomf/s1K-step-conditional-control-old"
 TOKENIZER_PATH="Qwen/Qwen2.5-7B-Instruct"   
 
 

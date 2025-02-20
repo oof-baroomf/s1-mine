@@ -51,7 +51,7 @@ torchrun \
     --per_device_eval_batch_size=1 \
     --gradient_accumulation_steps=$grad_acc \
     --num_train_epochs=${epochs} \
-    --train_file_path="simplescaling/${train_dataset_name}" \
+    --train_file_path="oof-baroomf/${train_dataset_name}" \
     --model_name="Qwen/Qwen2.5-32B-Instruct" \
     --warmup_ratio=0.05 \
     --report_to="none" \
